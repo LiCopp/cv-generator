@@ -1,0 +1,11 @@
+# Headerbilder und überlappende Profilfotos
+
+Layoutschema 4 ergänzt `headerImageAssetId`, `headerImageDimPercent`, `photoSide` und `photoOverlapMm`. Das CV-Schema bleibt bei Version 3; Renderer-Version ist 1.8.0. Layouts der Versionen 1–3 werden explizit migriert: kein Headerbild, 25 % Abdunklung für später hinzugefügte Bilder, Foto rechts und 0 mm Überlappung. Unbekannte oder widersprüchliche Felder werden weiterhin abgewiesen.
+
+Headerbilder verwenden dieselben kontrollierten, eingebetteten PNG-Assets wie Profilfotos. Lokale PNG/JPEG-Uploads bis 4 MB werden dekodiert, auf maximal 1600 Pixel Kantenlänge verkleinert und ohne Metadaten als PNG neu kodiert. Foto-Uploads behalten 800 Pixel. Ein fehlendes referenziertes Headerbild macht einen Import ungültig. Austausch und Entfernung eines Bildes erhalten das andere Bild sowie gemeinsam verwendete Assets. Es werden keine privaten Inhalte aus dem Referenzlebenslauf als Fixtures übernommen.
+
+Der Header bleibt im Dokumentfluss. Sein Wrapper reserviert zusätzlich die konfigurierte Überlappung (0–20 mm), sofern ein sichtbares Foto vorhanden ist. Nur das Foto wird innerhalb dieses begrenzten Wrappers absolut positioniert. Die Headerdekoration bleibt separat beschnitten; das Foto liegt über dem Formabschluss. Headertext erhält seitlich Platz für das Foto, darunterliegende Spalten folgen nach dem Wrapper. Die Pagination misst dessen gesamte Höhe, auch bei mehrseitigen CVs. Folgeseiten behalten ihre schmale Kopfzeile ohne Bild und Foto.
+
+Das Hintergrundbild ist ein dekoratives `img` mit leerem Alternativtext, `object-fit: cover` und mittigem Zuschnitt. So berücksichtigt die vorhandene Druckvorbereitung das Laden des Bildes. Eine separate schwarze Ebene mit einstellbarer Deckkraft verbessert die Lesbarkeit weisser Headertexte. Ohne Bild bleiben die bisherigen Farb-/Verlaufseinstellungen wirksam. PDF-Text bleibt semantisches HTML und auslesbar.
+
+Browser-/PDF-Tests prüfen alle fünf Headerformen, beide Fotoseiten, Kreis und Rechteck, kurze und mehrseitige CVs, identische Fotoabmessungen in Vorschau und Druck sowie gerenderte PDF-Pixel unterhalb der Headerkante. Upload, Austausch, unabhängige Entfernung, lokale Speicherung, JSON-Export und Ablehnung von SVG werden zusätzlich geprüft.

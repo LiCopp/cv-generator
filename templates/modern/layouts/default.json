@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 23,
+  "id": "studio-default",
+  "templateId": "modern",
+  "page": {
+    "format": "A4",
+    "marginMm": 15
+  },
+  "appearance": {
+    "accent": "#244d43",
+    "fontId": "dm-sans",
+    "fontSizePt": 10,
+    "lineHeight": 1.5,
+    "spacingMm": 5,
+    "sidebarSide": "left",
+    "sidebarPercent": 29,
+    "headerStyle": "gradient",
+    "headerEdge": "wave",
+    "headerEdgeDepthMm": 10,
+    "headerEdgeMirrored": false,
+    "timelineStyle": "line",
+    "timelineOffsetMm": 0,
+    "timelineTextGapMm": 3.75,
+    "stationSpacingMm": 1.5,
+    "sectionDividers": false,
+    "photoShape": "circle",
+    "showPhoto": false,
+    "dividerSpacingBeforeMm": 5,
+    "dividerSpacingAfterMm": 5,
+    "dividerLengthPercent": null,
+    "headerContentGapMm": 15,
+    "introBodyGapMm": 5,
+    "compactWithoutSummary": false,
+    "showContactHeading": true,
+    "showRunningHeader": true,
+    "showFooter": true,
+    "sectionHeadings": {
+      "contact": {
+        "title": "Kontakt",
+        "fontSizePt": 9
+      },
+      "summary": {
+        "title": "Über mich",
+        "fontSizePt": 9
+      },
+      "experience": {
+        "title": "Erfahrung",
+        "fontSizePt": 9
+      },
+      "education": {
+        "title": "Ausbildung",
+        "fontSizePt": 9
+      },
+      "projects": {
+        "title": "Projekte & Engagement",
+        "fontSizePt": 9
+      },
+      "skills": {
+        "title": "Kenntnisse",
+        "fontSizePt": 9
+      },
+      "languages": {
+        "title": "Sprachen",
+        "fontSizePt": 9
+      },
+      "interests": {
+        "title": "Interessen",
+        "fontSizePt": 9
+      },
+      "references": {
+        "title": "Referenzen",
+        "fontSizePt": 9
+      }
+    },
+    "photoSide": "right",
+    "photoOverlapMm": 0,
+    "headerImageAssetId": null,
+    "headerImageDimPercent": 25,
+    "headerImageTransparencyPercent": 0,
+    "photoWidthMm": 34,
+    "photoBorderWidthMm": 1.2,
+    "photoBorderColor": "#ffffff",
+    "photoFit": "cover",
+    "photoPositionX": 50,
+    "photoPositionY": 50,
+    "introDividerSpacingBeforeMm": 5,
+    "introDividerSpacingAfterMm": 5,
+    "contactOrder": ["birth-date", "address", "email", "phone", "marital-status", "website"],
+    "contactLineHeight": 1.55,
+    "contactSpacingMm": 2.8,
+    "stationDateLineHeight": 1.5,
+    "stationTitleLineHeight": 1.4,
+    "stationOrganizationLineHeight": 1.5,
+    "stationDateTitleGapMm": 0.9,
+    "stationTitleOrganizationGapMm": 0.5,
+    "headerShiftUpMm": 0,
+    "headerTextOffsetMm": 0,
+    "photoOffsetMm": 0,
+    "headerTextColor": "#ffffff",
+    "headerNameLayout": "stacked",
+    "leftColumnLineHeight": null,
+    "stationHeadingOrder": ["date", "title", "organization"]
+  },
+  "sections": [
+    {
+      "id": "summary",
+      "region": "main",
+      "enabled": true
+    },
+    {
+      "id": "education",
+      "region": "main",
+      "enabled": true
+    },
+    {
+      "id": "experience",
+      "region": "main",
+      "enabled": true
+    },
+    {
+      "id": "projects",
+      "region": "main",
+      "enabled": true
+    },
+    {
+      "id": "skills",
+      "region": "sidebar",
+      "enabled": true
+    },
+    {
+      "id": "languages",
+      "region": "sidebar",
+      "enabled": true
+    },
+    {
+      "id": "interests",
+      "region": "sidebar",
+      "enabled": true
+    },
+    {
+      "id": "references",
+      "region": "sidebar",
+      "enabled": true
+    }
+  ],
+  "skills": {
+    "display": "text",
+    "showLevel": true,
+    "showDescription": false,
+    "groupByCategory": false,
+    "barValues": {
+      "Grundkenntnisse": 25,
+      "Gute Kenntnisse": 50,
+      "Sehr gute Kenntnisse": 75,
+      "Expertenkenntnisse": 100
+    }
+  },
+  "proficiencyPercentages": {
+    "skills": {},
+    "languages": {}
+  }
+}

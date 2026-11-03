@@ -1,0 +1,49 @@
+{
+  "name": "cv-generator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "test:browser": "playwright test",
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write \"**/*.{ts,tsx,js,mjs,json,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,mjs,json,css}\"",
+    "pdf:snapshot": "node scripts/pdf-output-snapshot.mjs"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@fontsource/dm-sans": "^5.2.0",
+    "@fontsource/lora": "^5.2.0",
+    "@fontsource/source-sans-3": "^5.2.0",
+    "@hookform/resolvers": "^5.2.0",
+    "@mui/material": "^7.3.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.62.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^10.12.0",
+    "pdfjs-dist": "^6.4.299",
+    "prettier": "^3.9.10",
+    "typescript": "~5.9.0",
+    "typescript-eslint": "^8.71.2",
+    "vite": "^7.1.0",
+    "vitest": "^5.0.4"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

@@ -1,0 +1,7 @@
+# Hervorgehobene und einklappbare Design-Bereiche
+
+Die vorhandenen fünf Hauptbereiche des Designers verwenden eine gemeinsame `DesignGroup`-Komponente mit nativen `details`/`summary`-Elementen. Nummerierte Karten, kräftigere Titel, kurze Inhaltsangaben und ein Richtungspfeil verbessern die Orientierung. Die gesamte Kopfzeile ist per Maus und Tastatur bedienbar. Explizite Button-Rolle, Expandiert-Zustand und verknüpfte Inhaltsregion machen die Bedienung auch in der zugänglichen Darstellung eindeutig.
+
+Zwei beim Scrollen erreichbare Schalter öffnen/schliessen alle fünf Hauptbereiche; diese können unabhängig voneinander geöffnet bleiben. Beim ersten Aufruf sind alle geöffnet. Die Auswahl wird in `sessionStorage` als lokale UI-Präferenz gespeichert und beim Tabwechsel innerhalb der Anwendung sowie nach Neuladen wiederhergestellt. Ungültige oder nicht verfügbare Sitzungsspeicherung verhindert die Bedienung nicht. Bestehende Untergruppen für erweiterte Einstellungen bleiben separat bedienbar.
+
+Geschlossene Bereiche bleiben gemountet, sodass React-Hook-Form-Registrierungen und Eingaben erhalten bleiben. Der Klappzustand gehört weder zu CV-Daten noch zum portablen Layout. Schemas, Renderer und PDF-Erzeugung ändern sich nicht. Browser-Tests prüfen Einzel-/Sammelbedienung, Tastatur, mobile Breite, erreichbare Sammelschalter, Erhalt der Eingaben und der exakten Vorschau sowie den unveränderten JSON-Export und die Wiederherstellung der UI-Präferenz.

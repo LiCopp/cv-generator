@@ -1,0 +1,12 @@
+node_modules/
+.npm-cache/
+.playwright/
+.vite/
+dist/
+coverage/
+test-results/
+playwright-report/
+blob-report/
+private/
+# npm maintains this generated file.
+package-lock.json

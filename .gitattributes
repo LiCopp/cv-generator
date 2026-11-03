@@ -1,0 +1,2 @@
+# Match Prettier's line endings on Windows and Unix without converting binary assets.
+* text=auto eol=lf

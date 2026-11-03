@@ -1,0 +1,9 @@
+# Bildausschnitt bei exakt eingepassten Fotos
+
+Ein hochformatiges Foto mit `object-fit: contain` füllt einen kreisförmigen Rahmen vertikal exakt aus. `object-position: 50% 25%` kann es dann nur horizontal bewegen: Prozentangaben beziehen sich auf den Unterschied zwischen Bild- und Rahmenmass, der vertikal null ist. Dasselbe Problem betrifft andere Kombinationen aus Bildformat, Rahmen und Einpassung.
+
+Renderer 1.9.1 berechnet die tatsächliche Bildgrösse aus den geladenen intrinsischen Massen, dem gewählten Fit und der Rahmen-Innenfläche. Auf Achsen mit Beschnitt oder Freiraum bleibt die bisherige Prozent-Ausrichtung erhalten. Auf exakt ausgefüllten Achsen wird eine physische Verschiebung von −50 bis +50 % des Innenmasses ergänzt; 50 % bleibt zentriert. Das Foto bleibt innerhalb seiner bestehenden Form beschnitten, Rahmen und Dokumentfluss ändern sich nicht. Verschieben kann weisse Freiflächen erzeugen; der Editor erklärt dies.
+
+Die Position wird beim Laden sowie bei Änderungen der Bild-/Layouteinstellungen gesetzt, auch für bereits geladene Bilder aus dem Cache. Die Druckvorbereitung wartet vor dem Kopieren auf die Quellbilder und den nächsten Renderframe, damit der Snapshot bereits die korrekte Position enthält. Die Projektfelder bleiben unverändert; CV-Schema 3 und Layoutschema 5 benötigen keine Migration. Nicht mittige Werte auf vorher wirkungslosen Achsen bewegen das Foto nun sichtbar.
+
+Unit-Tests prüfen Berechnung und Erhalt bestehender Ausrichtungen. Browser-Tests verwenden synthetische Streifenbilder in Hoch-, Quer- und Quadratformat und vergleichen sichtbare Vorschaupixels bei Regleränderungen. Zusätzlich prüfen sie die Bildfarben im tatsächlichen PDF über den Export-Button sowie die Wiederherstellung des Reglerwerts nach dem Neuladen. Keine privaten Bilder oder CV-Inhalte werden als Fixtures übernommen.

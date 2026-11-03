@@ -1,0 +1,9 @@
+# Stationspunkte folgen der ersten sichtbaren Zeile
+
+Renderer 1.25.3 ersetzt die feste vertikale Punktposition von 1,1 mm durch die Mitte der ersten sichtbaren Textzeile im Stationskopf. Die bisherige Position passte ungefähr zu einer kleinen Datumszeile, blieb aber bei zuerst angezeigtem Jobtitel, geändertem Zeilenabstand oder anderem ersten Feld unverändert. Das führte zu einem sichtbaren Versatz zwischen Punkt und Text.
+
+CSS ermittelt über das erste tatsächlich gerenderte Feld, ob Datum, Jobtitel oder Arbeitgeber beginnt. Die Punktmitte berechnet sich aus dessen Schriftgrösse und eigenem Zeilenabstand; für Jobtitel gilt die Schriftgrösse der jeweiligen Spalte. Datum und Arbeitgeber nutzen gemeinsame Schriftgrössenvariablen für Text und Punktberechnung. Bei mehrzeiligen Feldern bleibt der Punkt an der ersten Zeile. Fehlende Metadaten werden bereits vom bestehenden `StationHeading` ausgelassen und benötigen keine Sonderbehandlung oder weitere CV-/Layoutfelder.
+
+Der erste Linienabschnitt beginnt ebenfalls an der berechneten Punktmitte. Die weiteren Verbindungen, Fortsetzungen an Seitenumbrüchen und die horizontale Zeitachsenposition bleiben bestehen. Die Berechnung ist rein deklarativ und funktioniert identisch in Messansicht, Vorschau und Druck; Text bleibt im Dokumentfluss und auslesbar. CV-Schema 7, Layoutschema 20 und Vorlagenschema 2 bleiben unverändert.
+
+Browser-Tests prüfen alle sechs Stationsreihenfolgen mit Punkten und Verbindungslinie, fehlende Metadaten, lange mehrzeilige Titel/Arbeitgeber, verschiedene Schriften und Zeilenhöhen sowie Stationen in beiden Spalten. Vier Browser-/PDF-Tests prüfen kurze und lange CVs, beide Spalten, Punkt-/Liniengeometrie und die tatsächliche Farbfläche der Punkte im gerenderten PDF. Testdaten sind synthetisch; das private Nutzerprojekt wird nicht als Fixture gespeichert.

@@ -1,0 +1,7 @@
+# A4-Vorschau und Bildschirmkalibrierung
+
+Die Zoomsteuerung erhält eine direkte Auswahl von 25 bis 400 %, einschliesslich 100 %. Die automatische Breitenanpassung nutzt die tatsächlich verfügbare Inhaltsbreite des Vorschaucontainers. Eine manuelle Auswahl deaktiviert das automatische Nachregeln bei Fensteränderungen; «Vorschau einpassen» aktiviert es wieder. Grosse Seiten bleiben horizontal und vertikal scrollbar.
+
+100 % bildet die unveränderten 210 × 297 CSS-mm des Renderers ab. CSS-Millimeter garantieren am Bildschirm keine physische Papiergrösse. Eine optionale Kalibrierung zeigt daher eine unskalierte 50-CSS-mm-Vergleichslinie ausserhalb des Dokuments. Aus der vom Benutzer gemessenen Länge berechnet die Oberfläche den Zoomfaktor `50 / gemesseneMillimeter`. Die Eingabegrenzen 12,5–200 mm entsprechen den unterstützten Zoomgrenzen. Die Messung wird fehlertolerant in `localStorage` gespeichert und kann nach Änderungen an Monitor oder Browserzoom wiederholt werden.
+
+Die wiederverwendbare MUI-Komponente `PreviewZoomControls` gehört ausschliesslich zur Editor-Oberfläche. Zoom, Einpassmodus und Bildschirmkalibrierung gehören weder zu CV-Daten noch zum portablen Layout. Schemas, Renderer und Druckansicht bleiben unverändert. Browser-Tests prüfen A4-Geometrie, erreichbare Seitenränder bei 400 %, manuelle Auswahl und Breitenanpassung, Kalibrierung samt Wiederherstellung und Validierung sowie mobile Bedienung. Ein zusätzlicher echter PDF-Export bei kalibriertem Zoom prüft weiterhin A4-Abmessungen und extrahierbaren Text.

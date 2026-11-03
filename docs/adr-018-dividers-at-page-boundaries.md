@@ -1,0 +1,9 @@
+# Trennlinien am Seitenanfang weglassen
+
+Beginnt ein Abschnitt auf einer neuen Seite, trennt bereits der Seitenwechsel die Inhalte. Seine horizontale Trennlinie und deren obere/untere Linienabstände entfallen deshalb. Linien zwischen Abschnitten derselben Seite bleiben bestehen. Renderer-Version ist 1.15.1; CV- und Layoutschema bleiben unverändert.
+
+Lokale Trennlinien erhalten bei der Messung die abgeleitete Kennzeichnung `hideAtPageStart`. Die Pagination hält sie weiterhin mit Überschrift und erstem Inhalt zusammen. Wechselt diese Gruppe auf die nächste Seite, wird die führende Dekoration weggelassen und ihre Höhe dort nicht verbraucht. Der neue Abschnitt beginnt dadurch am normalen Inhaltsanfang seiner Spalte. Es werden keine Daten aus dem gespeicherten Layout entfernt und keine unsichtbaren Linienblöcke als Platzhalter zurückgelassen.
+
+Beim gemeinsamen Übergang nach Kontakt/Kurzprofil werden zwei Höhen unterschieden: mit Linie unter dem Einstieg auf derselben Seite und nur mit dem separaten Einstiegsabstand auf einer neuen Seite. Wird der gemeinsame Inhaltsbeginn verschoben, berücksichtigt die Pagination bereits die kleinere Höhe. Beide Spalten bleiben ausgerichtet; `introBodyGapMm` bleibt erhalten. Die gemeinsame Linie wird nur gezeichnet, wenn auf derselben Seite noch Einstiegsinhalt steht.
+
+Unit-Tests prüfen das Entfernen führender Dekoration, den wieder verfügbaren Platz und den Erhalt von Linien innerhalb einer Seite. Browser-/PDF-Tests erzwingen einen neuen Abschnitt am Seitenanfang, prüfen fehlende Linienabstände, fortbestehende andere Linien und vollständigen Text. Gerasterte PDF-Ausgabe prüft zusätzlich den leeren Bereich oberhalb der neuen Überschrift. Die bestehenden Tests zum gemeinsamen Einstieg decken die gemeinsame Linie sowohl innerhalb einer Seite als auch beim Seitenwechsel ab.
